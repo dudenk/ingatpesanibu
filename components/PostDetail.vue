@@ -17,14 +17,13 @@
         </ul>
         
         <h1 class="heading" v-html="post.title.rendered"> </h1>
-        <p> </p>
+
         <div class="content_box">
             <div v-for="(content,p) of post.content.rendered.split('</p>')" :key="p">
                 <div v-html="content"> </div>
                 <div v-if="p === 0"> </div>
             </div>
-
-            <p> </p>
+            
             <div class="authour_box clearfix">
                 <div class="authour_details">
                 <img src="assets/image/resources/review-1.png" class="img-fluid" alt="img" />
@@ -44,7 +43,7 @@
                         :title="post.title.rendered"
                         >
                         
-                    <li> <a><i :class="network.icon"></i></a></li> 
+                    <li> <i :class="network.icon"></i> </li> 
                 </ShareNetwork>
                 </ul>
                 </div>

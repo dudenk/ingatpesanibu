@@ -25,8 +25,10 @@
     "nuxt": "^2.14.5",
     "nuxt-lazy-load": "^1.2.4",
     "popper.js": "^1.16.1",
+    "safe-get": "^1.0.6",
     "striptags": "^3.1.1",
-    "vue-social-sharing": "^3.0.0"
+    "vue-social-sharing": "^3.0.0",
+    "whatwg-fetch": "^3.4.1"
   },
   "devDependencies": {
     "@nuxtjs/moment": "^1.6.1"
