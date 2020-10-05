@@ -31,8 +31,13 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/google-analytics'
   ],
+
+  googleAnalytics: {
+    id: 'UA-57456405-12'
+  },
 
   moment: {
     defaultLocale: 'id',
@@ -42,6 +47,7 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    'vue-social-sharing/nuxt',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     ['nuxt-lazy-load', {

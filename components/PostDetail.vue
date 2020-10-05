@@ -35,9 +35,17 @@
                 <div class="media_icons">
                 <ul>
                     <li>Share:</li>
-                    <li> <a><i class="fa fa-facebook"></i></a></li>
-                    <li> <a><i class="fa fa-twitter"></i></a></li>
-                    <li> <a><i class="fa fa-instagram"></i></a></li>
+                    <ShareNetwork
+                        v-for="network in networks"
+                        :network="network.network"
+                        :key="network.network"
+                    
+                        :url="postUrl"
+                        :title="post.title.rendered"
+                        >
+                        
+                    <li> <a><i :class="network.icon"></i></a></li> 
+                </ShareNetwork>
                 </ul>
                 </div>
             </div>
@@ -47,12 +55,25 @@
 </template>
 
 <script>
+
 export default {
     name: 'post-detail',
     components: {
     },
     props: ['post'],
     computed: {
+        postUrl: function () {
+            return 'https://satgascovid.pojoksatu.id/berita/' + this.post.slug
+        },
+    },
+    data() {
+        return {
+            networks: [
+                { network: 'facebook', name: 'Facebook', icon: 'fa fah fa-lg fa-facebook-f', color: '#1877f2' },
+                { network: 'twitter', name: 'Twitter', icon: 'fa fah fa-lg fa-twitter', color: '#1da1f2' },
+                { network: 'whatsapp', name: 'Whatsapp', icon: 'fa fah fa-lg fa-whatsapp', color: '#25d366' }
+            ]
+        }
     },
     methods: {
         postDate: function (theDate) {

@@ -1,0 +1,7 @@
+@media(max-width:480px) {
+	
+    .icon_box.type_one .icon:before {
+        left: 25%;
+	}
+	
+}
