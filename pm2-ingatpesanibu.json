@@ -1,6 +1,6 @@
 { "apps": [
 
-    { "name": "ingatpesanibu", "cwd": "/home/jenkins/workspace/ingatpesanibu", "script": "npm", "args": "start" } 
+    { "name": "ingatpesanibu", "cwd": "/Users/gag/Dev/nuxt/satgascovid", "script": "npm", "args": "start" } 
 
 ] }
 

@@ -1,3 +1,7 @@
+
+if (process.BROWSER_BUILD) {
+    require('jquery')
+}
 /**
  * Owl Carousel v2.2.1
  * Copyright 2013-2017 David Deutsch
@@ -3273,3 +3277,43 @@
 	}
 
 })(window.Zepto || window.jQuery, window, document);
+
+
+/*--------------four_items------------------*/
+function fouritems() {
+    if ($('.four_items').length) {
+        $('.four_items').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: true,
+            center: false,
+            autoplay: true,
+            smartSpeed: 3000,
+            autoplayTimeout: 4000,
+            navText: ['<span class="clearfix prev flaticon-left-arrow"></span>', '<span class="clearfix flaticon-next"></span>'],
+
+            responsive: {
+                0: {
+                    items: 1
+                },
+                800: {
+                    items: 2
+                },
+
+                1200: {
+                    items: 3
+                },
+                1400: {
+                    items: 4
+                }
+            }
+        });
+    }
+}
+
+jQuery(document).on('ready', function() {
+    (function($) {
+		fouritems();
+    })(jQuery);
+});

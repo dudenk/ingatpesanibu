@@ -55,6 +55,7 @@
 /*--------------import----external-css-----------------*/
 @import url('~/static/css/font-awesome.min.css');
 @import url('~/static/css/animate.css');
+@import url('~/static/css/owl.css');
 
 /*--------------import----external-css-----------------*/
 
@@ -1391,7 +1392,7 @@ header css
 }
 
 .header_v1 .navbar-brand img {
-	width: 150px;
+    width: 450px;
 }
 
 .header_v1 .bsnav-sticky.bsnav-sticky-slide.sticked.in {
@@ -1618,7 +1619,7 @@ header css
 }
 
 .header_v2 .navbar-brand img {
-	width: 150px;
+	width: 450px;
 }
 
 .header_v2 .bsnav-sticky.bsnav-sticky-slide.sticked.in {

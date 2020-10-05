@@ -2,9 +2,37 @@
     <!--Header-->
     <main class="main-content">
       <!------main-content------>
-      <!------main-slider------>
+      
+      <section id="berita" class="welcome type_one">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                  <div class="heading text-center icon_dark tp_one">
+                      <h6>Berita</h6>
+                      <span class="flaticon-virus icon"></span>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 padding_zero">
+                  <div class="row news-list">
+                    <div
+                        v-for="post in HomePosts"
+                        class="col-lg-4"
+                        :key="post.id"
+                    >
+                      <post-summary :post="post"></post-summary>
+                    </div>
+                      
+                  </div>
+                  <center><nuxt-link to="/berita" class="theme_btn tp_two">Berita Lainnya</nuxt-link></center>
+                  <p> &nbsp; </p>
+                </div>
+            </div>
+          </div>
+      </section>
       <!-------------welome_box---------->
-      <section class="welcome type_one">
+      <section class="blog type_two">
           <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -59,42 +87,82 @@
       </section>
       <!-------------welome_box---------->
       
-      <section id="berita" class="blog type_two">
+    
+
+      <section id="infographis" class="welcome type_one"> 
           <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                   <div class="heading text-center icon_dark tp_one">
-                      <h6>Berita</h6>
+                      <h6>Infograpis</h6>
                       <span class="flaticon-virus icon"></span>
                   </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 padding_zero">
-                  <div class="row news-list">
-                    <div
-                        v-for="post in HomePosts"
-                        class="col-lg-4"
-                        :key="post.id"
-                    >
-                      <post-summary :post="post"></post-summary>
-                    </div>
-                      
+                  <div class="igpost-list">
+
+                  <client-only>
+                    <carousel v-bind="slickOptions">
+                      <slide
+                          v-for="igpost in tagData"
+                          class="owl-item"
+                          :key="igpost.id"
+                        >
+                            <div class="blog_box type_one ">
+                              <div class="image_box ">
+                                  <img :src="igpost.node.thumbnail_src" class="img-fluid " alt="img ">
+                                  <div class="overlay">
+                                    <a :href="igUrl(igpost.node.shortcode)" data-fancybox="gallery" data-caption="  ">
+                                    <span><i class="fa fa-instagram"></i></span>
+                                    </a>
+                                  </div>
+                              </div>
+                            </div>
+                        </slide>
+                    </carousel>
+                  </client-only>
+
                   </div>
-                  <nuxt-link to="/berita" class="theme_btn tp_two">Berita Lainnya</nuxt-link>
+                  
                 </div>
             </div>
           </div>
       </section>
-      
+
+      <section id="video" class="explore_more type_two">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                  <div class="heading text-center icon_dark tp_one">
+                      <h3 class="text-white">Video</h3>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 padding_zero">
+                  <div class="row news-list">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLEfKHty_QlpjLemMpYs4RSvnGtXpIlOdW" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      
+                  </div>
+                  
+                </div>
+            </div>
+          </div>
+      </section>
       <!-------------main-centent-end--------------->
     </main>
 </template>
 
 <script>
+
+import driver from 'ig-headless-driver'
+
 import { mapState, mapActions } from 'vuex';
 
 import PostSummary from '~/components/PostSummary.vue'
+
 export default {
   components: {
     PostSummary
@@ -113,6 +181,12 @@ export default {
   },
   data() {
         return {
+          slickOptions: {
+            loop: true,
+            perPage: 5,
+            paginationEnabled: false
+          },
+          tagData: []
         }
     },
     computed: {
@@ -123,14 +197,28 @@ export default {
     methods: {
         ...mapActions({
             getPosts: 'getHomePosts',
-        })
+        }),
+        async getIGbyTag() {
+          const tag = 'ingatpesanibupakaimasker'
+          const tagData  = await driver.getTag(tag)
+          this.tagData = tagData.post.slice(0,10)
+          // console.log(this.tagData)
+        },
+        igUrl( shortcode ) {
+          return "https://www.instagram.com/p/"+shortcode
+        }
+
     },
     created() {
         this.getPosts()
+        this.getIGbyTag()
     }
 }
 
 </script>
 
-<style>
+<style scoped>
+iframe {
+  height:100vh; 
+}
 </style>

@@ -3,5 +3,8 @@
     .icon_box.type_one .icon:before {
         left: 25%;
 	}
-	
+	.header_v2 .navbar-brand img {
+        width: 250px;
+    }
+    
 }

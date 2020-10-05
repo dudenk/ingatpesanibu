@@ -12,7 +12,7 @@
             </div>
         </div>
         <ul class="tags_upper">
-            <li><a href="# " class="author ">{{post.authorname}} </a></li>
+            <li><a href="# " class="author "><b>{{post.authorname}} </b> </a></li>
             <li><a href="# " class="date "><span class="fa fa-clock-o"></span>{{ postDate(post.date) }} </a></li>
         </ul>
         
@@ -44,7 +44,7 @@
                         >
                         
                     <li> <i :class="network.icon"></i> </li> 
-                </ShareNetwork>
+                    </ShareNetwork>
                 </ul>
                 </div>
             </div>

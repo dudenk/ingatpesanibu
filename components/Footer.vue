@@ -1,5 +1,5 @@
 <template>
-   <section class="footer type_two">
+   <section class="footer type_three">
         <div class="container">
             <div class="footer_last type_two">
                 <div class="row">
