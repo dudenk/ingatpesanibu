@@ -1,0 +1,6 @@
+{ "apps": [
+
+    { "name": "ingatpesanibu", "cwd": "/home/jenkins/workspace/ingatpesanibu", "script": "npm", "args": "start" } 
+
+] }
+
