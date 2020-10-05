@@ -24,14 +24,6 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/bootstrap.min.js',mode: 'client', ssr: false },
-    { src: '~/plugins/bsnav.min.js',mode: 'client', ssr: false },
-    { src: '~/plugins/jquery-ui.js', mode: 'client',ssr: false },
-    { src: '~/plugins/jquery.fancybox.js', mode: 'client', ssr: false },
-    { src: '~/plugins/validator.min.js', mode: 'client', ssr: false },
-    { src: '~/plugins/appear.js', mode: 'client', ssr: false },
-    { src: '~/plugins/jquery.flexslider-min.js', mode: 'client', ssr: false },
-    { src: '~/plugins/pagenav.js', mode: 'client', ssr: false },
-    { src: '~/plugins/custom.js', mode: 'client', ssr: false },
   ],
   
   // Auto import components (https://go.nuxtjs.dev/config-components)
