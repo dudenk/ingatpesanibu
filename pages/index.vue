@@ -1,6 +1,6 @@
 <template>
     <!--Header-->
-    <main class="main-content">
+    <main id="home" class="main-content">
       <!------main-content------>
       
       <section id="berita" class="welcome type_one">
@@ -142,7 +142,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 padding_zero">
-                  <div class="row news-list">
+                  <div class="row youtube-big">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLEfKHty_QlpjLemMpYs4RSvnGtXpIlOdW" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       
                   </div>
@@ -218,7 +218,4 @@ export default {
 </script>
 
 <style scoped>
-iframe {
-  height:100vh; 
-}
 </style>

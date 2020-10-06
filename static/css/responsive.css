@@ -6,5 +6,11 @@
 	.header_v2 .navbar-brand img {
         width: 250px;
     }
+
+    .youtube-big iframe {
+        height: 256px;
+        padding: 10px;
+    }
+    
     
 }
