@@ -64,7 +64,9 @@ const createStore = () => {
       },
       async getPost ({commit, store}, slug) {
         let {data} = await axios.get(`https://express.pojoksatu.id/api/baca/?slug=${slug}`)
-        commit('setCurrentPost', data.post)
+        if (data.post.tags.includes(tag_id)) {
+          commit('setCurrentPost', data.post)
+        }
       },
       async getPages ({commit, store}, slug) {
         let {data} = await axios.get(`https://pojoksatu.id/wp-json/wp/v2/pages/?slug=${slug}`)
